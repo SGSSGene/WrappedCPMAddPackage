@@ -2,10 +2,15 @@
      SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# EnableCPM
+# WrappedCPMAddPackage
 
 Wrapper around c++ libraries, such that they can be used with [CPM](https://github.com/cpm-cmake/CPM.cmake)
+Use `WrappedCPMAddPackage` instead of `CPMAddPackage`
 
-- EnableCPM("gh:google/benchmark@1.8.3")
-- EnableCPM("gh:google/googletest@1.14.0")
-- EnableCPM("gh:boost-ext/reflect@1.0.9")
+- WrappedCPMAddPackage("gh:google/benchmark@1.8.3")
+- WrappedCPMAddPackage("gh:google/googletest@1.14.0")
+- WrappedCPMAddPackage("gh:boost-ext/reflect@1.0.9")
+- WrappedCPMAddPackage("gh:simd-everywhere/simde@0.7.6")
+- WrappedCPMAddPackage("https://zlib.net/zlib-1.3.1.tar.gz@1.3.1")
+- WrappedCPMAddPackage("gh:facebook/zstd@1.5.1")
+- WrappedCPMAddPackage("https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz@1.0.8")

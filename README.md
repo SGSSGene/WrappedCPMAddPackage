@@ -14,3 +14,6 @@ Use `WrappedCPMAddPackage` instead of `CPMAddPackage`
 - WrappedCPMAddPackage("https://zlib.net/zlib-1.3.1.tar.gz@1.3.1")
 - WrappedCPMAddPackage("gh:facebook/zstd@1.5.1")
 - WrappedCPMAddPackage("https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz@1.0.8")
+- WrappedCPMAddPackage("gh:USCiLab/cereal@1.3.2")
+- WrappedCPMAddPackage("gh:glfw/glfw#3.3.2@3.3.2")
+- WrappedCPMAddPackage("gh:libsndfile/libsndfile@1.0.30")

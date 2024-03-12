@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 include(cmake/CPM.cmake)
 function(WrappedCPMAddPackage arg)
 
-    if (arg MATCHES "^gh::google/googletest")
+    if (arg MATCHES "^gh:google/googletest")
         set(BUILD_GMOCK OFF)
         CPMAddPackage("${arg}" ${ARGN})
     elseif (arg MATCHES "^gh:google/benchmark")

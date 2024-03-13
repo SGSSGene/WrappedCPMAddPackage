@@ -7,6 +7,7 @@
 Wrapper around c++ libraries, such that they can be used with [CPM](https://github.com/cpm-cmake/CPM.cmake)
 Use `WrappedCPMAddPackage` instead of `CPMAddPackage`
 
+- WrappedCPMAddPackage("gh:ChunelFeng/CGraph@2.5.4")
 - WrappedCPMAddPackage("gh:USCiLab/cereal@1.3.2")
 - WrappedCPMAddPackage("gh:google/benchmark@1.8.3")
 - WrappedCPMAddPackage("gh:google/googletest@1.14.0")

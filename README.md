@@ -21,3 +21,4 @@ Use `WrappedCPMAddPackage` instead of `CPMAddPackage`
 - WrappedCPMAddPackage("gh:microsoft/mimalloc@2.1.2")
 - WrappedCPMAddPackage("gh:libsndfile/libsamplerate#0.2.2@0.2.2")
 - WrappedCPMAddPackage("gh:libsndfile/libsndfile@1.0.30")
+- WrappedCPMAddPackage("gh:intel/hyperscan@5.4.2")

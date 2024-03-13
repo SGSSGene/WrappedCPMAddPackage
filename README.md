@@ -22,3 +22,4 @@ Use `WrappedCPMAddPackage` instead of `CPMAddPackage`
 - WrappedCPMAddPackage("gh:libsndfile/libsamplerate#0.2.2@0.2.2")
 - WrappedCPMAddPackage("gh:libsndfile/libsndfile@1.0.30")
 - WrappedCPMAddPackage("gh:intel/hyperscan@5.4.2")
+- WrappedCPMAddPackage("https://www.akenotsuki.com/misc/srell/releases/srell4_040.zip@4.040")

@@ -23,3 +23,5 @@ Use `WrappedCPMAddPackage` instead of `CPMAddPackage`
 - WrappedCPMAddPackage("gh:libsndfile/libsndfile@1.0.30")
 - WrappedCPMAddPackage("gh:intel/hyperscan@5.4.2")
 - WrappedCPMAddPackage("https://www.akenotsuki.com/misc/srell/releases/srell4_040.zip@4.040")
+- WrappedCPMAddPackage("gh:antirez/linenoise#1.0@1.0")
+- WrappedCPMAddPackage("gh:jarro2783/cxxopts@2.2.0")

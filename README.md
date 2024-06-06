@@ -27,3 +27,4 @@ Use `WrappedCPMAddPackage` instead of `CPMAddPackage`
 - `WrappedCPMAddPackage("gh:jarro2783/cxxopts@2.2.0")`
 - `WrappedCPMAddPackage("gh:Cyan4973/xxhash@v0.8.2")`
 - `WrappedCPMAddPackage("gh:simd-everywhere/simde@0.8.0")`
+- `WrappedCPMAddPackage("gh:rikyoz/7-Zip@24.06")`

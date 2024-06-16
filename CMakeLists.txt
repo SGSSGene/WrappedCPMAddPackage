@@ -138,6 +138,15 @@ function(WrappedCPMAddPackage arg)
         CPMAddPackage("${arg}" ${ARGN})
         add_library(xxhash ${xxHash_SOURCE_DIR}/xxhash.c ${xxHash_SOURCE_DIR}/xxh_x86dispatch.c)
         target_include_directories(xxhash SYSTEM INTERFACE $<BUILD_INTERFACE:${xxHash_SOURCE_DIR}>)
+    elseif (arg MATCHES "^gh:rikyoz/7-Zip")
+        CPMAddPackage("${arg}" ${ARGN})
+        file(GLOB 7-Zip_SOURCE_FILES "${7-Zip_SOURCE_DIR}/C/*.c")
+        add_library(7-Zip_impl ${7-Zip_SOURCE_FILES})
+        target_include_directories(7-Zip_impl PUBLIC SYSTEM
+            "${7-Zip_SOURCE_DIR}/CPP/"
+            "${7-Zip_SOURCE_DIR}/C/"
+        )
+        add_library(7-zip::7-zip ALIAS 7-Zip_impl)
     else()
         message(FATAL_ERROR "WrappedCPMAddPackage doesn't know how to handle ${arg}")
     endif()

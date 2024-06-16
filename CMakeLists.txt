@@ -148,6 +148,38 @@ function(WrappedCPMAddPackage arg)
         )
         add_library(7-zip::7-zip ALIAS 7-Zip_impl)
         set(BIT7Z_CUSTOM_7ZIP_PATH "{7-Zip_SOURCE_DIR}")
+    elseif (arg MATCHES "^gh:xxsds/sdsl-lite")
+        if ("${ARGN}" MATCHES "^$")
+            if (arg MATCHES "@")
+                string(REPLACE "@" ";" L ${arg})
+                list(GET L 1 VERSION)
+                CPMAddPackage(NAME sdsl-lite
+                    GITHUB_REPOSITORY xxsds/sdsl-lite
+                    VERSION ${VERSION}
+                    DOWNLOAD_ONLY YES
+                )
+            elseif(arg MATCHES "#")
+                string(REPLACE "#" ";" L ${arg})
+                list(GET L 1 GIT_TAG)
+                CPMAddPackage(NAME sdsl-lite
+                    GITHUB_REPOSITORY xxsds/sdsl-lite
+                    GIT_TAG ${GIT_TAG}
+                    DOWNLOAD_ONLY YES
+                )
+            else()
+                message(FATAL_ERROR "WrappedCPMPackage can not parse ${arg}")
+            endif()
+        else()
+            CPMAddPackage("${arg}"
+                ${ARGN}
+                DOWNLOAD_ONLY YES
+            )
+        endif()
+        add_library(sdsl-lite INTERFACE)
+        target_include_directories(sdsl-lite INTERFACE SYSTEM
+            "${sdsl-lite_SOURCE_DIR}/include"
+        )
+        add_library(sdsl-lite::sdsl-lite ALIAS sdsl-lite)
     else()
         message(FATAL_ERROR "WrappedCPMAddPackage doesn't know how to handle ${arg}")
     endif()

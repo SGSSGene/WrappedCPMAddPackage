@@ -147,6 +147,7 @@ function(WrappedCPMAddPackage arg)
             "${7-Zip_SOURCE_DIR}/C/"
         )
         add_library(7-zip::7-zip ALIAS 7-Zip_impl)
+        set(BIT7Z_CUSTOM_7ZIP_PATH "{7-Zip_SOURCE_DIR}")
     else()
         message(FATAL_ERROR "WrappedCPMAddPackage doesn't know how to handle ${arg}")
     endif()

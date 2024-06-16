@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2024 Simon Gene Gottlieb
+# SPDX-License-Identifier: CC0-1.0
+name: "CI"
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+env:
+  NANOBENCH_SUPPRESS_WARNINGS: 1
+  TZ: Europe/Berlin
+
+concurrency:
+  group: ${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: ${{ matrix.os }}-${{ matrix.compiler }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {os: ubuntu-22.04, compiler: spdx_reuse_lint}
+    steps:
+      - name: Standard IV-project testing
+        uses: iv-project/IVaction@v9.15
+        with:
+          compiler: ${{ matrix.compiler }}
+          threads: 2
+          cmake_flags: ${{ matrix.cmake_flags }}
+          cmake_c_flags: ${{ matrix.cmake_c_flags }}
+          cmake_cxx_flags: ${{ matrix.cmake_cxx_flags }}
+  final:
+    runs-on: ubuntu-22.04
+    name: final-pass
+    needs: build
+    if: always()
+    steps:
+      - name: Succeeded
+        if: ${{ !(contains(needs.*.result, 'failure')) }}
+        run: exit 0
+      - name: CI failed
+        if: ${{ contains(needs.*.result, 'failure') }}
+        run: exit 1

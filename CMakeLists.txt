@@ -147,7 +147,7 @@ function(WrappedCPMAddPackage arg)
             "${7-Zip_SOURCE_DIR}/C/"
         )
         add_library(7-zip::7-zip ALIAS 7-Zip_impl)
-        set(BIT7Z_CUSTOM_7ZIP_PATH "{7-Zip_SOURCE_DIR}")
+        set(BIT7Z_CUSTOM_7ZIP_PATH "${7-Zip_SOURCE_DIR}" PARENT_SCOPE)
     elseif (arg MATCHES "^gh:xxsds/sdsl-lite")
         if ("${ARGN}" MATCHES "^$")
             if (arg MATCHES "@")

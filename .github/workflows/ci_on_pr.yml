@@ -25,10 +25,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - {os: ubuntu-22.04, compiler: spdx_reuse_lint}
+          - {os: ubuntu-22.04, compiler: spdx_license_lint}
     steps:
       - name: Standard IV-project testing
-        uses: iv-project/IVaction@v9.26
+        uses: iv-project/IVaction@v10.3
         with:
           compiler: ${{ matrix.compiler }}
           threads: 2
